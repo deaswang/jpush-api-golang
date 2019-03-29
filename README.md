@@ -16,7 +16,7 @@ go get github.com/deaswang/jpush-api-golang
 
 ## 代码样例
 
->   代码样例在 jpush-api-golang 中的 example 文件夹中，[点击查看所有 example ](https://github.com/deaswang/jpush-api-golang/example) 。
+>   代码样例在 jpush-api-golang 中的 example 文件夹中，[点击查看所有 example ](https://github.com/deaswang/jpush-api-golang/tree/master/example) 。
 
 >   这个样例演示了消息推送。
 
