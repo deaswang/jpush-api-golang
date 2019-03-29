@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/cochainio/jpush-api-golang"
+	"github.com/deaswang/jpush-api-golang"
 )
 
 // AppKey set value from JPush web
