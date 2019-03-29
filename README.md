@@ -11,12 +11,12 @@
 ## 环境配置
 
 ```bash
-go get github.com/cochain/jpush-api-golang
+go get github.com/deaswang/jpush-api-golang
 ```
 
 ## 代码样例
 
->   代码样例在 jpush-api-golang 中的 example 文件夹中，[点击查看所有 example ](https://github.com) 。
+>   代码样例在 jpush-api-golang 中的 example 文件夹中，[点击查看所有 example ](https://github.com/deaswang/jpush-api-golang/example) 。
 
 >   这个样例演示了消息推送。
 
@@ -60,4 +60,4 @@ Device API 状态码 参考文档：<http://docs.jiguang.cn/jpush/server/push/re
 
 Push Schedule API 状态码 参考文档：<http://docs.jiguang.cn/jpush/server/push/rest_api_push_schedule/>
 
-[Release页面](https://github.com) 有详细的版本发布记录与下载。
+[Release页面](https://github.com/deaswang/jpush-api-golang/releases) 有详细的版本发布记录与下载。
