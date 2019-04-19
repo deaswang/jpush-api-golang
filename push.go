@@ -35,9 +35,8 @@ func (p *Platform) MarshalJSON() (data []byte, err error) {
 	return json.Marshal(p.Platforms)
 }
 
-// PushAudience define audience entry
-type PushAudience struct {
-	isAll          bool
+// Audience define Audience
+type Audience struct {
 	Tag            []string `json:"tag,omitempty"`
 	TagAnd         []string `json:"tag_and,omitempty"`
 	TagNot         []string `json:"tag_not,omitempty"`
@@ -45,6 +44,12 @@ type PushAudience struct {
 	RegistrationID []string `json:"registration_id,omitempty"`
 	Segment        []string `json:"segment,omitempty"`
 	ABTest         []string `json:"abtest,omitempty"`
+}
+
+// PushAudience define audience entry
+type PushAudience struct {
+	isAll bool
+	Aud   *Audience
 }
 
 // SetAll set isAll
@@ -59,7 +64,7 @@ func (p *PushAudience) UnmarshalJSON(data []byte) error {
 		return nil
 	}
 	p.isAll = false
-	return json.Unmarshal(data, p)
+	return json.Unmarshal(data, p.Aud)
 }
 
 // MarshalJSON marshal json
@@ -67,7 +72,7 @@ func (p *PushAudience) MarshalJSON() (data []byte, err error) {
 	if p.isAll {
 		return []byte(`"all"`), nil
 	}
-	return json.Marshal(p)
+	return json.Marshal(p.Aud)
 }
 
 // PushNotification define notification
