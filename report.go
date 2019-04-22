@@ -115,7 +115,7 @@ type ReportUsersResponse struct {
 
 // ReportReceived report received
 // GET /v3/received
-func (j *JPush) ReportReceived(msgIds []string) ([]*ReportReceivedResponse, error) {
+func (j *JPush) ReportReceived(msgIds []string) ([]ReportReceivedResponse, error) {
 	url := j.GetURL("report") + "received"
 	params := make(map[string]string)
 	params["msg_ids"] = strings.Join(msgIds, ",")
@@ -124,12 +124,12 @@ func (j *JPush) ReportReceived(msgIds []string) ([]*ReportReceivedResponse, erro
 	if err != nil {
 		return nil, err
 	}
-	var ret []*ReportReceivedResponse
+	ret := new([]ReportReceivedResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
 	}
-	return ret, nil
+	return *ret, nil
 }
 
 // ReportStatus report push status
@@ -144,12 +144,12 @@ func (j *JPush) ReportStatus(req *ReportStatusRequest) (map[string]MessageStatus
 	if err != nil {
 		return nil, err
 	}
-	var ret map[string]MessageStatus
+	ret := new(map[string]MessageStatus)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
 	}
-	return ret, nil
+	return *ret, nil
 }
 
 // ReportMessages message stat
@@ -163,7 +163,7 @@ func (j *JPush) ReportMessages(msgIds []string) (*ReportMessagesResponse, error)
 	if err != nil {
 		return nil, err
 	}
-	var ret *ReportMessagesResponse
+	ret := new(ReportMessagesResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -193,7 +193,7 @@ func (j *JPush) ReportUsers(timeUnit string, start time.Time, duration int) (*Re
 	if err != nil {
 		return nil, err
 	}
-	var ret *ReportUsersResponse
+	ret := new(ReportUsersResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err

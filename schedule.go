@@ -86,7 +86,7 @@ func (j *JPush) Schedule(req *ScheduleRequest) (*ScheduleResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	var ret *ScheduleResponse
+	ret := new(ScheduleResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -105,7 +105,7 @@ func (j *JPush) SchedulePage(page int) (*SchedulePageResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	var ret *SchedulePageResponse
+	ret := new(SchedulePageResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -122,7 +122,7 @@ func (j *JPush) ScheduleID(scheduleID string) (*ScheduleResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	var ret *ScheduleResponse
+	ret := new(ScheduleResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -139,7 +139,7 @@ func (j *JPush) ScheduleIDMsgs(scheduleID string) (*ScheduleMsgsResponse, error)
 	if err != nil {
 		return nil, err
 	}
-	var ret *ScheduleMsgsResponse
+	ret := new(ScheduleMsgsResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -159,7 +159,7 @@ func (j *JPush) SchedulePut(scheduleID string, req *ScheduleRequest) (*ScheduleR
 	if err != nil {
 		return nil, err
 	}
-	var ret *ScheduleResponse
+	ret := new(ScheduleResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -176,7 +176,7 @@ func (j *JPush) ScheduleDelete(scheduleID string) (*DefaultResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	var ret *DefaultResponse
+	ret := new(DefaultResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err

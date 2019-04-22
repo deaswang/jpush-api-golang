@@ -157,8 +157,8 @@ type PushRequest struct {
 
 // PushResponse define push repsone
 type PushResponse struct {
-	MsgID  float64 `json:"msg_id"`
-	Sendno int     `json:"sendno"`
+	MsgID  string `json:"msg_id"`
+	Sendno string `json:"sendno"`
 }
 
 // PushCIDResponse get cid response
@@ -178,7 +178,7 @@ func (j *JPush) Push(req *PushRequest) (*PushResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	var ret *PushResponse
+	ret := new(PushResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -198,7 +198,7 @@ func (j *JPush) PushGetCid(count int, cidtype string) (*PushCIDResponse, error) 
 	if err != nil {
 		return nil, err
 	}
-	var ret *PushCIDResponse
+	ret := new(PushCIDResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -218,7 +218,7 @@ func (j *GroupPush) GroupPush(req *PushRequest) (*PushResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	var ret *PushResponse
+	ret := new(PushResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -238,7 +238,7 @@ func (j *JPush) PushValidate(req *PushRequest) (*PushResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	var ret *PushResponse
+	ret := new(PushResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err

@@ -65,7 +65,7 @@ func (j *JPush) DeviceGetRegistrationID(registrationID string) (*DeviceRegistrat
 	if err != nil {
 		return nil, err
 	}
-	var ret *DeviceRegistrationIDResponse
+	ret := new(DeviceRegistrationIDResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -85,7 +85,7 @@ func (j *JPush) DevicePostRegistrationID(registrationID string, req *DeviceRegis
 	if err != nil {
 		return nil, err
 	}
-	var ret *DefaultResponse
+	ret := new(DefaultResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -105,7 +105,7 @@ func (j *JPush) DeviceGetAlias(alias string, platforms []string) (*DeviceAliasRe
 	if err != nil {
 		return nil, err
 	}
-	var ret *DeviceAliasResponse
+	ret := new(DeviceAliasResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -125,7 +125,7 @@ func (j *JPush) DeviceDeleteAlias(alias string, platforms []string) (*DefaultRes
 	if err != nil {
 		return nil, err
 	}
-	var ret *DefaultResponse
+	ret := new(DefaultResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -141,7 +141,7 @@ func (j *JPush) DeviceGetTags() (*DeviceTagsListResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	var ret *DeviceTagsListResponse
+	ret := new(DeviceTagsListResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -157,7 +157,7 @@ func (j *JPush) DeviceGetTagsRegistrationID(tag string, registrationID string) (
 	if err != nil {
 		return nil, err
 	}
-	var ret *DeviceTagsRegistrationIDResponse
+	ret := new(DeviceTagsRegistrationIDResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -177,7 +177,7 @@ func (j *JPush) DevicePostTags(tag string, req *DeviceTagsRequest) (*DefaultResp
 	if err != nil {
 		return nil, err
 	}
-	var ret *DefaultResponse
+	ret := new(DefaultResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -197,7 +197,7 @@ func (j *JPush) DeviceDeleteTags(tag string, platforms []string) (*DefaultRespon
 	if err != nil {
 		return nil, err
 	}
-	var ret *DefaultResponse
+	ret := new(DefaultResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -216,10 +216,10 @@ func (j *JPush) DevicePostStatus(req *DeviceStatusRequest) (map[string]DeviceSta
 	if err != nil {
 		return nil, err
 	}
-	var ret map[string]DeviceStatusResponse
+	ret := new(map[string]DeviceStatusResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
 	}
-	return ret, nil
+	return *ret, nil
 }

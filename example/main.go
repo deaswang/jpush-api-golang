@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 
 	"github.com/deaswang/jpush-api-golang"
@@ -17,6 +16,8 @@ func main() {
 	j := jpush.NewJPush(Appkey, masterSecret)
 	aud := &jpush.PushAudience{}
 	aud.SetAll(true)
+	aud.Aud = &jpush.Audience{}
+	aud.Aud.Tag = []string{"tag"}
 	req := &jpush.PushRequest{
 		Platform: &jpush.Platform{Platforms: []string{"android", "ios"}},
 		Audience: aud,
@@ -39,9 +40,6 @@ func main() {
 		fmt.Println(err.Error())
 		return
 	}
-	result, err := json.Marshal(ret)
-	if err != nil {
-		fmt.Println(string(result))
-	}
+	fmt.Println("result:", ret)
 	return
 }

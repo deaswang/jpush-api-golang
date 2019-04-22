@@ -44,7 +44,7 @@ func (j *JPush) AdminApp(req **AdminAppRequest) (*AdminAppResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	var ret *AdminAppResponse
+	ret := new(AdminAppResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -61,7 +61,7 @@ func (j *JPush) AdminAppDelete(appkey string) (*AdminSuccessResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	var ret *AdminSuccessResponse
+	ret := new(AdminSuccessResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
@@ -81,7 +81,7 @@ func (j *JPush) AdminAppCert(appkey string, req *AdminCertificateRequest) (*Admi
 	if err != nil {
 		return nil, err
 	}
-	var ret *AdminSuccessResponse
+	ret := new(AdminSuccessResponse)
 	err = json.Unmarshal(resp, ret)
 	if err != nil {
 		return nil, err
