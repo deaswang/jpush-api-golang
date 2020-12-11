@@ -7,7 +7,7 @@
 对应的 REST API 文档：<https://docs.jiguang.cn/jpush/server/push/server_overview/>
 
 ## 兼容版本
-+  Golang 1.10
++  Golang 1.15
 
 ## 环境配置
 
