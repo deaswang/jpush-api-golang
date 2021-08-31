@@ -1,5 +1,6 @@
 # JPush API Golang
 [![Go Report Card](https://goreportcard.com/badge/github.com/deaswang/jpush-api-golang)](https://goreportcard.com/report/github.com/deaswang/jpush-api-golang)
+[![Go](https://github.com/deaswang/jpush-api-golang/actions/workflows/go.yml/badge.svg?branch=master)](https://github.com/deaswang/jpush-api-golang/actions/workflows/go.yml)
 
 ## 概述
 这是 JPush REST API 的 Golang 版本封装开发包，不是由极光推送官方提供的，一般支持最新的 API 功能。
